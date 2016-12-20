@@ -17,6 +17,62 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    
+    // способ инициализации NSDictionary 1
+    NSDictionary *dictionary = [[NSDictionary alloc]initWithObjectsAndKeys:
+                                @"Petr", @"name",
+                                @"Pertocv", @"lastName",
+                                [NSNumber numberWithInt:22], @"age",
+                                nil];
+    
+    // способ инициализации NSDictionary 2
+    NSDictionary *dictionart2 = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 @"Petr2", @"name",
+                                 @"Vasilev", @"lastname",
+                                 @"age", [NSNumber numberWithInt:22],
+                                 nil];
+    
+    // способ инициализации NSDictionary 3
+    NSDictionary *dictionary3 = @{@"name":@"Vova",
+                                  @"lastName":@"Petrov",
+                                  @"age":@22};
+
+    
+    NSLog(@"=====dictionary=====");
+    // способ вывода NSDictionary 1
+    NSLog(@"Nsme - %@, lastName - %@, age - %d", [dictionary objectForKey:@"name"],
+                                                 [dictionary objectForKey:@"lastName"],
+                                                 [[dictionary objectForKey:@"age"] integerValue]);
+    NSLog(@"=====dictionar2=====");
+    // способ вывода NSDictionary 2
+    NSLog(@"%@", dictionart2);
+    
+    NSLog(@"=====dictionary3=====");
+    // способ вывода NSDictionary 3
+    NSLog(@"%@", dictionary3);
+    
+    NSLog(@"=====dictionartNumber=====");
+    NSInteger number = 22;
+    NSDictionary *dictionartNumber = @{@"number":@(number)};
+    NSLog(@"dictionartNumber\n number = %d", [[dictionartNumber objectForKey:@"number"] integerValue]);
+
+    
+    // количество значений
+    NSDictionary *dictionaryCoutn = @{@"name":@"Vohcik",
+                                      @"lastName":@"Petrov",
+                                      @"age":@(number)};
+    NSLog(@"%@, age - %d, количество - %d",dictionaryCoutn,
+                                            [[dictionaryCoutn objectForKey:@"age"] integerValue],
+                                            [dictionaryCoutn count]);
+    NSLog(@"=====цикл=====");
+    // цикл
+    for (NSString *key in [dictionaryCoutn allKeys]) {
+        id obj = [dictionaryCoutn objectForKey:key];
+        NSLog(@"key = %@, value = %@", key, obj);
+    }
+     
     return YES;
 }
 
